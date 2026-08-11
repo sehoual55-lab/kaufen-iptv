@@ -29,7 +29,7 @@ export const siteConfig = {
     // Für Links / WhatsApp: nur Ziffern, ohne + und Leerzeichen
     phoneRaw: "33756757387",
     // WhatsApp-Nummer (in der Regel identisch mit der Telefonnummer)
-    whatsapp: "33756757387",
+    whatsapp: "16615413954",
     email: "support@kaufen-iptv.store",
     // Standard-Nachricht, die im WhatsApp-Chat vorausgefüllt wird
     whatsappDefaultMessage:

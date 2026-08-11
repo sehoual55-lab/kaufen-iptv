@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import "@fontsource-variable/inter";
 import "@fontsource/sora/400.css";
 import "@fontsource/sora/500.css";
@@ -76,6 +77,7 @@ export default function RootLayout({
       <body className="min-h-screen font-sans">
         <Header />
         <main>{children}</main>
+        <Script src="/kaufen-checkout.js" strategy="afterInteractive" />
         <Footer />
         <WhatsAppFloat />
       </body>
