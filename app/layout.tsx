@@ -75,6 +75,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen font-sans">
+        {/* WA-ORDER */}<Script src="/wa-order.js?v=2" strategy="beforeInteractive" />
         <Header />
         <main>{children}</main>
         <Script src="/kaufen-checkout.js" strategy="afterInteractive" />
