@@ -1,4 +1,6 @@
 import type { MetadataRoute } from "next";
+import { existsSync, readdirSync } from "fs";
+import { join } from "path";
 import { siteConfig } from "@/config/site.config";
 import { blogPosts } from "@/data/blog";
 
@@ -39,5 +41,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...routes, ...posts];
+  // Articles published by the SEO Program are plain pages in public/blog/<slug>.html: list them too.
+  const autoDir = join(process.cwd(), "public", "blog");
+  const autoPosts: MetadataRoute.Sitemap = (existsSync(autoDir) ? readdirSync(autoDir) : [])
+    .filter((f) => f.endsWith(".html") && f !== "index.html")
+    .sort()
+    .map((f) => ({
+      url: `${base}/blog/${f}`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.6,
+    }));
+
+  return [...routes, ...posts, ...autoPosts];
 }
